@@ -1,5 +1,6 @@
 package com.myapp.DINSPlatform.Record;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.myapp.DINSPlatform.Person.Person;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,7 +14,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Data
