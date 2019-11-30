@@ -10,8 +10,7 @@ public class BookRecordService {
   private final PersonRepository personRepository;
   private final BookRecordRepository bookRecordRepository;
 
-  public BookRecordService(BookRecordRepository bookRecordRepository,
-      PersonRepository personRepository) {
+  public BookRecordService(BookRecordRepository bookRecordRepository, PersonRepository personRepository) {
     this.bookRecordRepository = bookRecordRepository;
     this.personRepository = personRepository;
   }

@@ -20,6 +20,10 @@ public class Person {
   public Person() {
   }
 
+  public Person(long id, String name) {
+    this.id = id;
+    this.name = name;
+  }
 
   public Person(String name) {
     this.name = name;
