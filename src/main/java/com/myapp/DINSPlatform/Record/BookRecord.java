@@ -17,7 +17,6 @@ import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Data
-@NoArgsConstructor
 @Table(name = "bookRecord")
 public class BookRecord {
 
@@ -32,10 +31,20 @@ public class BookRecord {
   @JsonIgnore
   private Person person;
 
-  public BookRecord(String name, String phoneNumber, Person person) {
+  public BookRecord(long id, String name, String phoneNumber, Person person) {
+    this.id = id;
     this.name = name;
-    this.phoneNumber = phoneNumber;
+    this. phoneNumber = phoneNumber;
     this.person = person;
+  }
+
+  public BookRecord( String name, String phoneNumber, Person person) {
+    this.name = name;
+    this. phoneNumber = phoneNumber;
+    this.person = person;
+  }
+
+  public BookRecord() {
   }
 
   public long getId() {

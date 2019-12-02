@@ -26,11 +26,9 @@ public class BookRecordController {
   }
 
   @RequestMapping("/person/{personId}/phoneBook/number")
-  public List<BookRecord> getAllBookRecordsBySubNum(@PathVariable long personId,
-      @RequestParam(name = "num") String number) {
+  public List<BookRecord> getAllBookRecordsBySubNum(@PathVariable long personId, @RequestParam(name = "num") String number) {
     return bookRecordService.getAllBookRecordsBySubNum(personId, number);
   }
-
 
   @RequestMapping("/person/{personId}/phoneBook/{recordId}")
   public BookRecord getBookRecord(@PathVariable long personId, @PathVariable long recordId) {

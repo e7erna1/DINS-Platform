@@ -4,15 +4,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.myapp.DINSPlatform.Person.Person;
 import com.myapp.DINSPlatform.Person.PersonRepository;
-import com.myapp.DINSPlatform.Person.PersonService;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.BDDMockito.Then;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
@@ -47,7 +43,7 @@ class BookRecordServiceTest {
 
     //Then
     assertThat(bookRecords)
-        .isEqualTo(new ArrayList<BookRecord>(Arrays.asList(bookRecord, bookRecord1)));
+        .isEqualTo(new ArrayList<>(Arrays.asList(bookRecord, bookRecord1)));
   }
 
   @Test
@@ -67,7 +63,7 @@ class BookRecordServiceTest {
 
     //Then
     assertThat(bookRecords)
-        .isEqualTo(new ArrayList<BookRecord>(Collections.singletonList(bookRecord)));
+        .isEqualTo(new ArrayList<>(Collections.singletonList(bookRecord)));
   }
 
   @Test
