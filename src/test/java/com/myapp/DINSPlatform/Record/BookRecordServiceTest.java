@@ -31,11 +31,6 @@ class BookRecordServiceTest {
   @Autowired
   BookRecordService bookRecordService;
 
-  @AfterEach
-  void destruct() {
-    entityManager.clear();
-  }
-
   @Test
   void getAllBookRecords() {
     //Given
@@ -90,8 +85,8 @@ class BookRecordServiceTest {
     BookRecord bookRecord2 = bookRecordService.getBookRecord(person.getId(), bookRecord.getId());
 
     //Then
-    assertThat(bookRecord2)
-        .isEqualTo(new ArrayList<BookRecord>(Collections.singletonList(bookRecord)));
+    assertThat(new ArrayList<>(Collections.singletonList(bookRecord2)))
+        .isEqualTo(new ArrayList<>(Collections.singletonList(bookRecord)));
   }
 
   @Test

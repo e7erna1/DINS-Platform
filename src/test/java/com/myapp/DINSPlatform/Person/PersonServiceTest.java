@@ -29,11 +29,6 @@ class PersonServiceTest {
   @Autowired
   PersonService personService;
 
-  @AfterEach
-  void destruct() {
-    entityManager.clear();
-  }
-
   @Test
   void getAllPersons() {
     //Given
