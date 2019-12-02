@@ -2,6 +2,7 @@ package com.myapp.DINSPlatform.Record;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.myapp.DINSPlatform.Person.Person;
+import com.sun.istack.NotNull;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -23,19 +24,17 @@ public class BookRecord {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
+  @NotNull
   private String name;
   private String phoneNumber;
+  @NotNull
+  @JsonIgnore
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
   @JoinColumn(name = "person_id", nullable = false)
   @OnDelete(action = OnDeleteAction.CASCADE)
-  @JsonIgnore
   private Person person;
 
-  public BookRecord(long id, String name, String phoneNumber, Person person) {
-    this.id = id;
-    this.name = name;
-    this. phoneNumber = phoneNumber;
-    this.person = person;
+  public BookRecord() {
   }
 
   public BookRecord( String name, String phoneNumber, Person person) {
@@ -44,7 +43,11 @@ public class BookRecord {
     this.person = person;
   }
 
-  public BookRecord() {
+  public BookRecord(long id, String name, String phoneNumber, Person person) {
+    this.id = id;
+    this.name = name;
+    this. phoneNumber = phoneNumber;
+    this.person = person;
   }
 
   public long getId() {

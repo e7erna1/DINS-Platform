@@ -19,33 +19,59 @@ public class PersonController {
     this.personService = personService;
   }
 
+  /**
+   * Returns all user's (phone books owners)
+   * @return List of {@link Person}
+   */
   @RequestMapping("/person")
   public List<Person> getAllPersons() {
     return personService.getAllPersons();
   }
 
+  /**
+   * Returns user by his name (part of name)
+   * @return List of {@link Person}
+   */
   @RequestMapping("/person/name")
   public List<Person> getAllBySubstring(@RequestParam(name = "name") String name) {
     return personService.getAllBySubstring(name);
   }
 
+  /**
+   * Returns user (phone book owner) by his id
+   * @param personId - Id of the user we are looking for
+   * @return One Person if it exists, or null if none exist
+   */
   @RequestMapping("/person/{personId}")
   public Person getPerson(@PathVariable long personId) {
     return personService.getPerson(personId);
   }
 
+  /**
+   * Add user (phone book owner)
+   * @param person - New {@link Person} instance, which we will add.
+   */
   @ResponseStatus(HttpStatus.CREATED)
   @RequestMapping(method = RequestMethod.POST, value = "/person")
   public void addPerson(@RequestBody Person person) {
     personService.addPerson(person);
   }
 
+  /**
+   * Edit user (phone book owner)
+   * @param person - A new instance of {@link Person} with which we want to replace the current one.
+   * @param personId - Id of the current user we want to replace.
+   */
   @ResponseStatus(HttpStatus.OK)
   @RequestMapping(method = RequestMethod.PUT, value = "/person/{personId}")
   public void editPerson(@RequestBody Person person, @PathVariable long personId) {
     personService.editPerson(person, personId);
   }
 
+  /**
+   * Remove user (phone book owner)
+   * @param personId - {@link Person} id, which we want delete.
+   */
   @ResponseStatus(HttpStatus.ACCEPTED)
   @RequestMapping(method = RequestMethod.DELETE, value = "/person/{personId}")
   public void deletePerson(@PathVariable long personId) {
