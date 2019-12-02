@@ -14,7 +14,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Collections;
 import java.util.List;
-import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -35,15 +34,17 @@ class PersonControllerTest {
   @Test
   void getAllPersons() throws Exception {
     Person person = new Person("Oleg");
+
     List<Person> people = Collections.singletonList(person);
+
     given(personController.getAllPersons()).willReturn(people);
+
     mockMvc.perform(get("/person")
         .contentType(MediaType.APPLICATION_JSON)
         .accept(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$", hasSize(1)))
-        .andExpect(jsonPath("$[0].name", is(person.getName())))
-        .andDo(print());
+        .andExpect(jsonPath("$[0].name", is(person.getName())));
   }
 
   @Test
@@ -57,8 +58,7 @@ class PersonControllerTest {
         .accept(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$", hasSize(1)))
-        .andExpect(jsonPath("$[0].name", is(person.getName())))
-        .andDo(print());
+        .andExpect(jsonPath("$[0].name", is(person.getName())));
   }
 
   @Test
@@ -66,8 +66,7 @@ class PersonControllerTest {
     Person person = new Person();
     person.setName("Oleg");
     given(personController.getPerson(person.getId())).willReturn(person);
-    mockMvc.perform(get("/person/" + person
-        .getId())
+    mockMvc.perform(get("/person/" + person.getId())
         .contentType(MediaType.APPLICATION_JSON)
         .accept(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
@@ -76,32 +75,28 @@ class PersonControllerTest {
 
   @Test
   void addPerson() throws Exception {
-    mockMvc.perform(post("/person")
-        .content(asJsonString(new Person("new Oleg")))
-        .contentType(MediaType.APPLICATION_JSON)
-        .accept(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$.id").exists());
+    mockMvc.perform(
+        post("/person")
+            .content(asJsonString(new Person("Test")))
+            .contentType(MediaType.APPLICATION_JSON)
+            .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isCreated());
   }
 
   @Test
   void editPerson() throws Exception {
-    mockMvc.perform(put("/person/1")
-        .content(asJsonString(new Person(1, "new Oleg")))
-        .contentType(MediaType.APPLICATION_JSON)
-        .accept(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk())
-        .andExpect(jsonPath("$.id", is(1)));
+    mockMvc.perform(
+        put("/person/{personId}", 1)
+            .content(asJsonString(new Person("Test")))
+            .contentType(MediaType.APPLICATION_JSON)
+            .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk());
   }
 
   @Test
   void deletePerson() throws Exception {
-    Person person = new Person("Oleg");
-    mockMvc.perform(delete("/person/" + person.getId())
-        .contentType(MediaType.APPLICATION_JSON)
-        .accept(MediaType.APPLICATION_JSON))
-        .andExpect(status().isOk()
-        );
+    mockMvc.perform(delete("/person/{id}", 1))
+        .andExpect(status().isAccepted());
   }
 
   static String asJsonString(final Object obj) {
