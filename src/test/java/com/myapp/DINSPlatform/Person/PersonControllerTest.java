@@ -77,7 +77,7 @@ class PersonControllerTest {
   @Test
   void addPerson() throws Exception {
     mockMvc.perform(post("/person")
-        .content(asJsonString(new Person( "new Oleg")))
+        .content(asJsonString(new Person("new Oleg")))
         .contentType(MediaType.APPLICATION_JSON)
         .accept(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
@@ -87,7 +87,7 @@ class PersonControllerTest {
   @Test
   void editPerson() throws Exception {
     mockMvc.perform(put("/person/1")
-        .content(asJsonString(new Person(1,"new Oleg")))
+        .content(asJsonString(new Person(1, "new Oleg")))
         .contentType(MediaType.APPLICATION_JSON)
         .accept(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())

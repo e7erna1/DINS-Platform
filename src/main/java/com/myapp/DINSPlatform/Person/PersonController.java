@@ -41,7 +41,8 @@ public class PersonController {
   }
 
   @RequestMapping(method = RequestMethod.PUT, value = "/person/{personId}")
-  public ResponseEntity<Person> editPerson(@RequestBody Person person, @PathVariable long personId) {
+  public ResponseEntity<Person> editPerson(@RequestBody Person person,
+      @PathVariable long personId) {
     personService.editPerson(person, personId);
     return new ResponseEntity<Person>(person, HttpStatus.OK);
   }

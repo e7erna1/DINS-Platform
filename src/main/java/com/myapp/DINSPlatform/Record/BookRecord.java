@@ -32,6 +32,12 @@ public class BookRecord {
   @JsonIgnore
   private Person person;
 
+  public BookRecord(String name, String phoneNumber, Person person) {
+    this.name = name;
+    this.phoneNumber = phoneNumber;
+    this.person = person;
+  }
+
   public long getId() {
     return id;
   }
