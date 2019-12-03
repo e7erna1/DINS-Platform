@@ -25,20 +25,28 @@ Application provide following functions:
     ```
 * Build
   * Enter the following commands in the command line:
-    * ``bash 
+    * ```bash 
       mvn clean
-      ``
-    * ``bash 
+      ```
+    * ```bash 
       mvn install
-      ``
+      ```
 * Run
   * Enter the following commands in the command line (Linux):
-      * ``bash 
+      * ```bash 
         cd target/
-        ``
-      * ``bash 
+        ```
+      * ```bash 
         java -jar DINS-Platform-0.0.1-SNAPSHOT.jar
-        ``
+        ```
+ * Enter the following commands in the command line (Windows):
+      * ```bash 
+        cd .\target\
+        ```
+      * ```bash 
+        java -jar .\DINS-Platform-0.0.1-SNAPSHOT.jar
+        ```
+To close, use the keyboard shortcut Ctrl + C
 # Working with application
 I recommend using the utility [Postman](https://www.getpostman.com/). </br>
 All work with the application occurs at the following url: http://localhost:8080 </br>
@@ -71,7 +79,7 @@ http://localhost:8080/person/{personId} </br>
 Request body sample: </br>
 In this case personId is 1 </br>
 ``
-	{
+{
    "id": 1,
    "name": "New name"
  }
