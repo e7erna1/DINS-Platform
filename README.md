@@ -39,7 +39,7 @@ Application provide following functions:
       * ```bash 
         java -jar DINS-Platform-0.0.1-SNAPSHOT.jar
         ```
- * Enter the following commands in the command line (Windows):
+  * Enter the following commands in the command line (Windows):
       * ```bash 
         cd .\target\
         ```
