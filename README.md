@@ -58,3 +58,66 @@ http://localhost:8080/person/{personId} </br>
 **Add new user** </br>
 CREATE request </br>
 http://localhost:8080/person </br>
+Request body sample:</br>
+``
+{
+  "name": "Name"
+}
+``
+
+**Edit user** </br>
+PUT request </br>
+http://localhost:8080/person/{personId} </br>
+Request body sample: </br>
+In this case personId is 1 </br>
+``
+	{
+   "id": 1,
+   "name": "New name"
+ }
+``
+
+**Delete user** </br>
+DELETE request </br>
+http://localhost:8080/person/{personId} </br>
+
+**Get all records** </br>
+GET request </br>
+http://localhost:8080/person/{personId}/phoneBook </br>
+
+**Get all records by part of the phone number** </br>
+GET request </br>
+http://localhost:8080/person/{personId}/phoneBook/number?num= {number} </br>
+
+**Get record by id** </br>
+GET request </br>
+http://localhost:8080/person/{personId}/phoneBook/{recordId} </br>
+
+**Add record** </br>
+POST request </br>
+http://localhost:8080/person/{personId}/phoneBook </br>
+Request body sample:</br>
+In this case personId is 1 </br>
+``
+{
+	"name": "Oleg",
+	"phoneNumber": "88005553535"
+}
+``
+
+**Edit record** </br>
+PUT request </br>
+http://localhost:8080/person/{personId}/phoneBook/{recordId} </br>
+Request body sample:</br>
+In this case personId is 1 and recordId is 1</br>
+``
+{
+ "id": 1,
+	"name": "New value",
+	"phoneNumber": "88005553636"
+}
+``
+
+**Delete record** </br>
+DELETE request </br>
+http://localhost:8080/person/{personId}/phoneBook/{recordId} </br>
