@@ -64,7 +64,7 @@ GET request </br>
 http://localhost:8080/person/{personId} </br>
 
 **Add new user** </br>
-CREATE request </br>
+POST request </br>
 http://localhost:8080/person </br>
 Request body sample:</br>
 ``
