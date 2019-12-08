@@ -10,15 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-@Entity
 @Data
-@Table(name = "bookRecord")
+@Entity(name = "bookRecord")
 public class BookRecord {
 
   @Id
@@ -37,16 +34,16 @@ public class BookRecord {
   public BookRecord() {
   }
 
-  public BookRecord( String name, String phoneNumber, Person person) {
+  public BookRecord(String name, String phoneNumber, Person person) {
     this.name = name;
-    this. phoneNumber = phoneNumber;
+    this.phoneNumber = phoneNumber;
     this.person = person;
   }
 
   public BookRecord(long id, String name, String phoneNumber, Person person) {
     this.id = id;
     this.name = name;
-    this. phoneNumber = phoneNumber;
+    this.phoneNumber = phoneNumber;
     this.person = person;
   }
 

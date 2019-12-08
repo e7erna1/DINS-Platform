@@ -21,6 +21,7 @@ public class PersonController {
 
   /**
    * Returns all user's (phone books owners)
+   *
    * @return List of {@link Person}
    */
   @RequestMapping("/person")
@@ -30,6 +31,7 @@ public class PersonController {
 
   /**
    * Returns user by his name (part of name)
+   *
    * @return List of {@link Person}
    */
   @RequestMapping("/person/name")
@@ -39,6 +41,7 @@ public class PersonController {
 
   /**
    * Returns user (phone book owner) by his id
+   *
    * @param personId - Id of the user we are looking for
    * @return One Person if it exists, or null if none exist
    */
@@ -49,6 +52,7 @@ public class PersonController {
 
   /**
    * Add user (phone book owner)
+   *
    * @param person - New {@link Person} instance, which we will add.
    */
   @ResponseStatus(HttpStatus.CREATED)
@@ -59,7 +63,9 @@ public class PersonController {
 
   /**
    * Edit user (phone book owner)
-   * @param person - A new instance of {@link Person} with which we want to replace the current one.
+   *
+   * @param person - A new instance of {@link Person} with which we want to replace the current
+   * one.
    * @param personId - Id of the current user we want to replace.
    */
   @ResponseStatus(HttpStatus.OK)
@@ -70,6 +76,7 @@ public class PersonController {
 
   /**
    * Remove user (phone book owner)
+   *
    * @param personId - {@link Person} id, which we want delete.
    */
   @ResponseStatus(HttpStatus.ACCEPTED)
