@@ -35,7 +35,7 @@ public class BookRecordService {
     });
   }
 
-  void editBookRecord(BookRecord bookRecord, long personId, long recordId) {
+  void editBookRecord(BookRecord bookRecord, long recordId) {
     bookRecordRepository.findById(recordId).map(record -> {
       record.setName(bookRecord.getName());
       record.setPhoneNumber(bookRecord.getPhoneNumber());

@@ -79,7 +79,7 @@ public class BookRecordController {
   @RequestMapping(method = RequestMethod.PUT, value = "/person/{personId}/phoneBook/{recordId}")
   public void editBookRecord(@RequestBody BookRecord bookRecord, @PathVariable long personId,
       @PathVariable long recordId) {
-    bookRecordService.editBookRecord(bookRecord, personId, recordId);
+    bookRecordService.editBookRecord(bookRecord, recordId);
   }
 
   /**
